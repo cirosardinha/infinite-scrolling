@@ -1,0 +1,32 @@
+<div class="flex flex-col items-center w-full justify-center gap-6 py-6 px-2 border-r border-[#3b3b3b] ">
+
+  <div class="flex rounded-lg w-full items-center gap-2 justify-start ">
+    <img class="w-10 h-10 rounded-full" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User avatar">
+    <textarea name="post"
+      class="resize-none w-lg border-b border-[#3b3b3b] p-2 bg-transparent placeholder:text-[#3b3b3b] text-white text-sm focus:outline-none"
+      placeholder="Escreva uma publicação"></textarea>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold px-4 py-2 rounded-3xl">Publicar</button>
+  </div>
+
+  @for (post of postsToDisplay; track post.id) {
+  <div class="flex flex-col w-full p-0">
+    <app-post [post]=" post"></app-post>
+  </div>
+  }
+
+  @if(loading && !endOfFeed) {
+  <div class="flex justify-center gap-2">
+    <span class="animate-bounce bg-[#3498db] text-sm w-4 h-4 rounded-full "></span>
+    <span style="animation-delay: 200ms" class="animate-bounce bg-[#3498db] text-sm w-4 h-4 rounded-full"></span>
+    <span style="animation-delay: 400ms" class="animate-bounce bg-[#3498db] text-sm w-4 h-4 rounded-full"></span>
+  </div>
+  }
+
+  @if(endOfFeed) {
+  <div class="flex justify-center">
+    <span class="text-white text-sm">{{ endOfFeedMessage }}</span>
+  </div>
+  }
+
+
+</div>

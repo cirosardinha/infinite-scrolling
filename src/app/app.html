@@ -1,0 +1,16 @@
+<div class="flex relative w-full pt-8 bg-neutral-950 text-white scroll-smooth overflow-hidden">
+
+  <button (click)="toggleSidebar()" class="sm:hidden text-white absolute top-1 left-1 p-2 rounded-full">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+      stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+
+  </button>
+
+
+  <app-sidebar (toggleSidebar)="toggleSidebar()" class="sm:w-1/4" [showSidebar]="showSidebar"></app-sidebar>
+
+  <app-feed class="w-full md:w-3/4" [class.blur-xs]="showSidebar"
+    style="transition: filter 0.2s ease-in-out;"></app-feed>
+</div>
